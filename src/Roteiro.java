@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Roteiro {
 	
@@ -11,7 +12,7 @@ public class Roteiro {
 	
 	private Veiculo veiculo;
 	
-	private LinkedList<Objeto> objetos;
+	private List<Objeto> objetos = new LinkedList<>();
 
 	public int getIdRoteiro() {
 		return idRoteiro;
@@ -45,11 +46,11 @@ public class Roteiro {
 		this.veiculo = veiculo;
 	}
 
-	public LinkedList<Objeto> getObjetos() {
+	public List<Objeto> getObjetos() {
 		return objetos;
 	}
 
-	public void setObjetos(LinkedList<Objeto> objetos) {
+	public void setObjetos(List<Objeto> objetos) {
 		this.objetos = objetos;
 	}
 	
