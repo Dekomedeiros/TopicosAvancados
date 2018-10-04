@@ -1,4 +1,3 @@
-
 public class Motorista extends Pessoa {
 
 	public Motorista(String nome, String CNH, String tipoCNH) {
