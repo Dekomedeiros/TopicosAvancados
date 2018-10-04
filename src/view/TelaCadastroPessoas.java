@@ -50,11 +50,26 @@ public class TelaCadastroPessoas extends JDialog {
 		}
 		{
 			JButton btnCliente = new JButton("Cliente");
+			btnCliente.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaFuncionario cadastroFuncionario = new TelaFuncionario();
+					cadastroFuncionario.setVisible(true);
+					TelaCadastroPessoas.this.dispose();
+				}
+			});
 			btnCliente.setBounds(115, 115, 180, 36);
 			contentPanel.add(btnCliente);
 		}
 		{
 			JButton btnMotorista = new JButton("Motorista");
+			btnMotorista.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaMotorista cadastroMotorista = new TelaMotorista();
+					cadastroMotorista.setVisible(true);
+					TelaCadastroPessoas.this.dispose();
+				}
+			});
+			
 			btnMotorista.setBounds(115, 158, 180, 36);
 			contentPanel.add(btnMotorista);
 		}

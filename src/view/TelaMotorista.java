@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
@@ -17,12 +18,12 @@ import java.awt.event.ActionEvent;
 public class TelaMotorista extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txtNomeMotorista;
+	private JTextField txtEnderecoMotorista;
+	private JTextField intNumeroMotorista;
+	private JTextField txtBairroMotorista;
+	private JTextField txtCpfMotorista;
+	private JTextField intNumeroCnh;
 
 	/**
 	 * Launch the application.
@@ -47,43 +48,48 @@ public class TelaMotorista extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(27, 78, 388, 20);
-		contentPanel.add(textField);
-		textField.setColumns(10);
+		txtNomeMotorista = new JTextField();
+		txtNomeMotorista.setBounds(27, 78, 388, 20);
+		contentPanel.add(txtNomeMotorista);
+		txtNomeMotorista.setColumns(10);
+		txtNomeMotorista.setDocument(new teclasPermitidasTexto());
 		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setBounds(27, 61, 46, 14);
 		contentPanel.add(lblNome);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(27, 171, 388, 20);
-		contentPanel.add(textField_1);
-		textField_1.setColumns(10);
+		txtEnderecoMotorista = new JTextField();
+		txtEnderecoMotorista.setBounds(27, 171, 388, 20);
+		contentPanel.add(txtEnderecoMotorista);
+		txtEnderecoMotorista.setColumns(10);
+		txtEnderecoMotorista.setDocument(new teclasPermitidasTexto());
 		
 		JLabel lblEndereo = new JLabel("Endere\u00E7o");
-		lblEndereo.setBounds(27, 156, 46, 14);
+		lblEndereo.setBounds(27, 156, 223, 14);
 		contentPanel.add(lblEndereo);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(460, 171, 116, 20);
-		contentPanel.add(textField_2);
-		textField_2.setColumns(10);
+		intNumeroMotorista = new JTextField();
+		intNumeroMotorista.setBounds(460, 171, 116, 20);
+		contentPanel.add(intNumeroMotorista);
+		intNumeroMotorista.setColumns(10);
+		intNumeroMotorista.setDocument(new teclasPermitidasNumero());
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero");
 		lblNmero.setBounds(460, 156, 46, 14);
 		contentPanel.add(lblNmero);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(104, 219, 132, 20);
-		contentPanel.add(textField_3);
-		textField_3.setColumns(10);
+		txtBairroMotorista = new JTextField();
+		txtBairroMotorista.setBounds(104, 219, 132, 20);
+		contentPanel.add(txtBairroMotorista);
+		txtBairroMotorista.setColumns(10);
+		txtBairroMotorista.setDocument(new teclasPermitidasTexto());
 		
 		JLabel lblBairro = new JLabel("Bairro");
 		lblBairro.setBounds(104, 202, 46, 14);
 		contentPanel.add(lblBairro);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"AC ", "AL ", "AP", "AM ", "BA ", "CE ", "DF ", "ES ", "GO ", "MA ", "MT ", "MS ", "MG ", "PA ", "PB ", "PR ", "PE ", "PI ", "RJ ", "RN ", "RS ", "RO ", "RR ", "SC ", "SP ", "SE ", "TO"}));
 		comboBox.setBounds(27, 219, 57, 20);
 		contentPanel.add(comboBox);
 		
@@ -95,15 +101,17 @@ public class TelaMotorista extends JDialog {
 		lblCpf.setBounds(27, 109, 46, 14);
 		contentPanel.add(lblCpf);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(27, 125, 174, 20);
-		contentPanel.add(textField_4);
-		textField_4.setColumns(10);
+		txtCpfMotorista = new JTextField();
+		txtCpfMotorista.setBounds(27, 125, 174, 20);
+		contentPanel.add(txtCpfMotorista);
+		txtCpfMotorista.setColumns(10);
+		txtCpfMotorista.setDocument(new teclasPermitidasCpf());
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(27, 269, 157, 20);
-		contentPanel.add(textField_5);
-		textField_5.setColumns(10);
+		intNumeroCnh = new JTextField();
+		intNumeroCnh.setBounds(27, 269, 157, 20);
+		contentPanel.add(intNumeroCnh);
+		intNumeroCnh.setColumns(10);
+		intNumeroCnh.setDocument(new teclasPermitidasNumero());
 		
 		JLabel lblNmeroCnh = new JLabel("N\u00FAmero CNH");
 		lblNmeroCnh.setBounds(27, 255, 86, 14);
@@ -125,7 +133,30 @@ public class TelaMotorista extends JDialog {
 				JButton okButton = new JButton("Salvar");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						
+						if(txtNomeMotorista.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo Nome é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						if(txtCpfMotorista.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo CPF é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						if(txtEnderecoMotorista.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo Endereço é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						if(txtBairroMotorista.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo Bairro é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						if(intNumeroMotorista.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo Número é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						if(intNumeroCnh.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "O campo Número da CNH é obrigatório", "Aviso", JOptionPane.WARNING_MESSAGE);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "O Funcionário foi cadastrado", "Cadastro Realizado", JOptionPane.INFORMATION_MESSAGE);
+							TelaMotorista.this.dispose();
+							TelaInicial inicio = new TelaInicial();
+							inicio.setVisible(true);
+						}
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -134,6 +165,13 @@ public class TelaMotorista extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						TelaMotorista.this.dispose();
+						TelaCadastroPessoas pessoas = new TelaCadastroPessoas();
+						pessoas.setVisible(true);
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
