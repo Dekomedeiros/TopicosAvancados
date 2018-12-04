@@ -11,7 +11,7 @@ public class Roteiro {
 	
 	private Veiculo veiculo;
 	
-	private LinkedList<Objeto> objetos;
+	private LinkedList<Objeto> objetos = new LinkedList<>();
 
 	public int getIdRoteiro() {
 		return idRoteiro;

@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Veiculo2 {
 
@@ -19,7 +20,16 @@ public class Veiculo2 {
 
 	public Veiculo2(TIPO tipo) {
 		if(tipo == TIPO.BAU) {
-			numeroObjetos = 5;
+			numeroObjetos = 3;
+		}
+		if(tipo == TIPO.CARRETA) {
+			numeroObjetos = 10;
+		}
+		if(tipo == TIPO.VAN) {
+			numeroObjetos = 1;
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Informe o tipo de veículo para cadastro", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	
