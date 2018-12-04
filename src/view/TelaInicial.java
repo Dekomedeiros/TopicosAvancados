@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -64,14 +65,29 @@ public class TelaInicial extends JFrame {
 		
 		JButton btnPedidos = new JButton("Pedidos");
 		btnPedidos.setBounds(89, 62, 186, 23);
+		btnPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaPedido telaPedido = new TelaPedido();
+				telaPedido.setVisible(true);
+				TelaInicial.this.dispose();
+			}
+		});
 		
 		JButton btnRelatrios = new JButton("Relat\u00F3rios");
 		btnRelatrios.setBounds(89, 164, 186, 23);
+		btnRelatrios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaRelatorio telaRelatorio = new TelaRelatorio();
+				telaRelatorio.setVisible(true);
+				TelaInicial.this.dispose();
+			}
+		});
 		contentPane.setLayout(null);
 		contentPane.add(btnCadastroDePessoas);
 		contentPane.add(btnCadastroDeVeculos);
 		contentPane.add(btnPedidos);
 		contentPane.add(btnRelatrios);
+		
 	}
 
 }

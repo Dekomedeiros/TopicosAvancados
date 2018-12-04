@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public abstract class Pessoa {
+public class Pessoa {
 	
 	private int idPessoa;
 	
@@ -39,7 +39,7 @@ public abstract class Pessoa {
 	}
 
 	public void setCpf(String cpf) {
-		cpf = cpf;
+		this.cpf = cpf;
 	}
 
 	public Date getDataNascimento() {
@@ -64,6 +64,7 @@ public abstract class Pessoa {
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+		
 	}
 
 	public String getCNH() {
@@ -81,8 +82,4 @@ public abstract class Pessoa {
 	public void setTipoCNH(String tipoCNH) {
 		this.tipoCNH = tipoCNH;
 	}
-	
-	
-	
-
 }

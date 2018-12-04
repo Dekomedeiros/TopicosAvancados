@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Pedido {
@@ -7,7 +8,7 @@ public class Pedido {
 	
 	private Pessoa cliente;
 	
-	private Set<Objeto> objetos;
+	private Set<Objeto> objetos = new HashSet<>();
 
 	private Date dataEntradaPedido;
 
