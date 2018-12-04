@@ -8,11 +8,12 @@ public class Transportadora {
 
 		while(menu2 != 0) {
 
-
-
 			int menu = Integer.parseInt(
 					JOptionPane.showInputDialog("BEM VINDO A TRANSPORTADORA ENTREGA RÁPIDA, FAVOR ESCOLHER UMA OPÇÃO \n\n"
-							+ "1. Cadastrar nova pessoa\n" + "2. Cadastrar novo Veículo\n" + "0. Sair"));
+							+ "1. Cadastrar nova pessoa\n" + "2. Cadastrar novo Veículo\n" + "3. Novo Pedido\n"+ "0. Sair"));
+			if(menu == 0) {
+				menu2 = 0;
+			}
 
 			while(menu != 0) {
 
@@ -23,8 +24,14 @@ public class Transportadora {
 					menu = 0;
 					break;
 					
+				case 2:
+					cadastroVeiculo();
+					menu = 0;
+					break;
+					
 				case 0:
 					
+					break;
 
 				default:
 					break;
@@ -34,6 +41,7 @@ public class Transportadora {
 		}
 	}
 
+	
 	public static void cadastroPessoa() {
 
 		int opc = Integer
@@ -42,43 +50,47 @@ public class Transportadora {
 
 
 		switch (opc) {
+		
 		case 1:
-			cadastroMotorista();
+			Motorista.cadastroMotorista();
 
 			break;
 
 		case 2:
-			cadastroCliente();
+			Cliente.cadastroCliente();
 
 			break;
 
 		default:
 			break;
 		}
-
-
-
-
 	}
+	
 
-	public static void cadastroMotorista() {
-		String nome = "";
-		String CNH = "";
-		String tipoCNH = "";
-		Motorista motorista = new Motorista(nome, CNH, tipoCNH);
+	public static void cadastroVeiculo() {
+		
+		int opc2 = Integer.parseInt(JOptionPane.showInputDialog("INFORME O VEÍCULO PARA CADASTRAR: \n\n"
+				+ "1. Cadastrar Bau.\n"
+				+ "2. Cadastrar Carreta.\n"
+				+ "3. Cadastrar Van"));
+		
+		
+		switch (opc2) {
+		
+		case 1:
+			Veiculo2.cadastrarBau();
+			break;
+			
+		case 2: 
+			Veiculo2.cadastrarCarreta();
+			break;
+			
+		case 3:
+			Veiculo2.cadastrarVan();
+			break;
 
-		motorista.setNome(JOptionPane.showInputDialog("Informe o nome do motorista"));
-		motorista.setCNH(JOptionPane.showInputDialog("Informe o número da CNH do motorista"));
-		motorista.setTipoCNH(JOptionPane.showInputDialog("Informe o tipo de CNH do motorista"));
+		default:
+			break;
+		}
 	}
-
-	public static void cadastroCliente() {
-		String nome = "";
-		String cpf = "";
-		Cliente cliente = new Cliente(nome, cpf);
-
-		cliente.setNome(JOptionPane.showInputDialog("Informe o nome do Cliente"));
-		cliente.setCpf(JOptionPane.showInputDialog("Informe o CPF do Cliente"));
-	}
-
 }
