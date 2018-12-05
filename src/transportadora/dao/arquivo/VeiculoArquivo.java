@@ -71,6 +71,8 @@ public class VeiculoArquivo {
 	
 	public void alterarVeiculo(Veiculo veiculo) {
 		LinkedList<Veiculo> veiculos = lerArquivoVeiculo();
+		
+		//FIXME PERCORRER OS VEICULOS E ACHAR O ID PASSADO
 
 		veiculos.add(veiculo);
 

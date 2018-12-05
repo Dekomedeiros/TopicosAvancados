@@ -1,7 +1,7 @@
 package transportadora;
 
 public enum StatusObjeto {
-	PENDENTE("P"),ENTREGUE("E"),NOVO("N");
+	PENDENTE("P"),ENTREGUE("E"),NOVO("N"),EM_TRANSPORTE("T");
 	
 	private String status;
 	public String getStatus() {

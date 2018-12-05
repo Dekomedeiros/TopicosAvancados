@@ -14,7 +14,7 @@ public enum TipoVeiculo {
 		}
 	}, CARRETA("C"){
 		public int getQtdMaximaTransporte() {
-			return 3;
+			return 10;
 		}
 		
 		public boolean isCnhValida(String tipoCnh) {
@@ -25,13 +25,14 @@ public enum TipoVeiculo {
 		}
 	}, BAU("B") {
 		public int getQtdMaximaTransporte() {
-			return 10;
+			return 3;
 		}
 		
 		public boolean isCnhValida(String tipoCnh) {
 			if(tipoCnh.equalsIgnoreCase("C")) {
 				return true;
 			}
+			
 			return false;
 			
 			/*

@@ -44,6 +44,12 @@ public class ObjetoArquivo {
 	public void inserirObjeto(Objeto objeto) {
 		LinkedList<Objeto> objetos = lerArquivoObjeto();
 		
+		for (Objeto objeto1 : objetos) {
+			if(objeto1.getIdLocalizador() == objeto.getIdLocalizador()) {
+					//FIXME RETURN FALSE
+			}
+		}
+		
 		objeto.setIdObjeto(Calendar.getInstance().get(Calendar.MILLISECOND));
 
 		objetos.add(objeto);
@@ -68,6 +74,8 @@ public class ObjetoArquivo {
 				// IGNORA ERRO
 			}
 		}
+		
+		
 	}
 	
 	public void alterarObjeto(int objetoId, StatusObjeto statusObjeto) {
@@ -101,7 +109,7 @@ public class ObjetoArquivo {
 		}
 	}
 	
-	public LinkedList<Objeto> lsitaObjetoNaoEntreguesPorPrioridade() {
+	public LinkedList<Objeto> listaObjetoNaoEntreguesPorPrioridade() {
 		LinkedList<Objeto> objetos = lerArquivoObjeto();
 		
 		LinkedList<Objeto> objetosPendentes = new LinkedList<>();

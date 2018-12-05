@@ -15,10 +15,8 @@ public class Veiculo {
 	private String placa;
 	
 	private Motorista motorista;
-
-	public int getNumeroObjetos() {
-		return tipo.getQtdMaximaTransporte();
-	}
+	
+	private boolean disponivel;
 
 	public int getIdVeiculo() {
 		return idVeiculo;
@@ -74,5 +72,13 @@ public class Veiculo {
 
 	public void setMotorista(Motorista motorista) {
 		this.motorista = motorista;
+	}
+
+	public boolean isDisponivel() {
+		return disponivel;
+	}
+
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
 	}
 }

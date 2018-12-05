@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -18,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import transportadora.Objeto;
 import transportadora.StatusObjeto;
-import transportadora.dao.banco.ObjetoDao;
+import transportadora.dao.arquivo.ObjetoArquivo;
 
 public class TelaPedido extends JDialog {
 
@@ -81,7 +83,15 @@ public class TelaPedido extends JDialog {
 					
 					objeto.setDataCadastro(new Date());
 					
-					objeto.setDataDeposito(null); //FIXME Inserir a Data do Deposito
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					
+					String dataDeposito = comboBox.getSelectedItem().toString() + "/" + comboBox_1.getSelectedItem().toString() + "/" + comboBox_2.getSelectedItem().toString();
+					
+					try {
+						objeto.setDataDeposito(sdf.parse(dataDeposito));
+					} catch (ParseException e) {
+						e.printStackTrace();
+					} 
 					
 					objeto.setNomeDestinatario(txtNomeDestinatario.getText());
 					objeto.setEnderecoDestinatario(txtEnderecoDestinatario.getText());
@@ -100,11 +110,11 @@ public class TelaPedido extends JDialog {
 					objeto.setStatus(StatusObjeto.NOVO);
 					
 					//if(ARQUIVO) { //FIXME implementar um CHECKBOX para saber quando usar o arquivo e quando usar o banco
-						//ObjetoArquivo objetoArquivo = new ObjetoArquivo();
-						//objetoArquivo.inserirObjeto(objeto);
+						ObjetoArquivo objetoArquivo = new ObjetoArquivo();
+						objetoArquivo.inserirObjeto(objeto);
 					//} else {
-						ObjetoDao objetoDao = new ObjetoDao();
-						objetoDao.inserirObjetoBanco(objeto);
+						//ObjetoDao objetoDao = new ObjetoDao();
+						//objetoDao.inserirObjetoBanco(objeto);
 					//}
 					
 					JOptionPane.showMessageDialog(null, "Pedido cadastrado com sucesso", "Cadastro Realizado",

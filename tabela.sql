@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`veiculo` (
   `tipo` VARCHAR(45) NOT NULL,
   `ano` INT(4) NOT NULL,
   `modelo` VARCHAR(45) NOT NULL,
+  `disponivel` TINYINT NOT NULL,
   `idmotorista` INT NOT NULL,
   PRIMARY KEY (`idveiculo`),
   INDEX `idmotorista_idx` (`idmotorista` ASC) VISIBLE,
