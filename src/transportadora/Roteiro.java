@@ -1,3 +1,4 @@
+package transportadora;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -5,11 +6,9 @@ public class Roteiro {
 	
 	private int idRoteiro;
 	
-	private Date diaDeEntrega;
-	
-	private Motorista motorista;
-	
 	private Veiculo veiculo;
+	
+	private Date dataRoteiro;
 	
 	private LinkedList<Objeto> objetos = new LinkedList<>();
 
@@ -21,28 +20,20 @@ public class Roteiro {
 		this.idRoteiro = idRoteiro;
 	}
 
-	public Date getDiaDeEntrega() {
-		return diaDeEntrega;
-	}
-
-	public void setDiaDeEntrega(Date diaDeEntrega) {
-		this.diaDeEntrega = diaDeEntrega;
-	}
-
-	public Motorista getMotorista() {
-		return motorista;
-	}
-
-	public void setMotorista(Motorista motorista) {
-		this.motorista = motorista;
-	}
-
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
 
 	public void setVeiculo(Veiculo veiculo) {
 		this.veiculo = veiculo;
+	}
+
+	public Date getDataRoteiro() {
+		return dataRoteiro;
+	}
+
+	public void setDataRoteiro(Date dataRoteiro) {
+		this.dataRoteiro = dataRoteiro;
 	}
 
 	public LinkedList<Objeto> getObjetos() {
@@ -53,6 +44,4 @@ public class Roteiro {
 		this.objetos = objetos;
 	}
 	
-	
-
 }

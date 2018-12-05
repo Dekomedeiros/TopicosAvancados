@@ -1,21 +1,22 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-
 public class TelaInicial extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JButton btnRelatorios;
+	private JButton btnPedidos;
+	private JButton btnCadastroDeVeiculos;
+	private JButton btnCadastroDePessoas;
 
 	/**
 	 * Launch the application.
@@ -37,14 +38,10 @@ public class TelaInicial extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaInicial() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 381, 275);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		
-		JButton btnCadastroDePessoas = new JButton("Cadastro de Pessoas");
-		btnCadastroDePessoas.setBounds(89, 130, 186, 23);
+		montaTelaInicial();
+		
+		//Adiciona Ação Botão Cadastro de Pessoas
 		btnCadastroDePessoas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroPessoas people = new TelaCadastroPessoas();
@@ -53,9 +50,8 @@ public class TelaInicial extends JFrame {
 			}
 		});
 		
-		JButton btnCadastroDeVeculos = new JButton("Cadastro de Ve\u00EDculos");
-		btnCadastroDeVeculos.setBounds(89, 96, 186, 23);
-		btnCadastroDeVeculos.addActionListener(new ActionListener() {
+		//Adiciona Ação Botão Cadastro de Veiculos
+		btnCadastroDeVeiculos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroVeiculos tela = new TelaCadastroVeiculos();
 				tela.setVisible(true);
@@ -63,8 +59,7 @@ public class TelaInicial extends JFrame {
 			}
 		});
 		
-		JButton btnPedidos = new JButton("Pedidos");
-		btnPedidos.setBounds(89, 62, 186, 23);
+		//Adiciona Ação Botão Cadastro de Pedidos
 		btnPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPedido telaPedido = new TelaPedido();
@@ -73,21 +68,42 @@ public class TelaInicial extends JFrame {
 			}
 		});
 		
-		JButton btnRelatrios = new JButton("Relat\u00F3rios");
-		btnRelatrios.setBounds(89, 164, 186, 23);
-		btnRelatrios.addActionListener(new ActionListener() {
+		//Adiciona Ação Botão Cadastro de Relatórios
+		btnRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaRelatorio telaRelatorio = new TelaRelatorio();
 				telaRelatorio.setVisible(true);
 				TelaInicial.this.dispose();
 			}
 		});
+		
+	}
+
+	private void montaTelaInicial() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 381, 275);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		btnCadastroDePessoas = new JButton("Cadastro de Pessoas");
+		btnCadastroDePessoas.setBounds(89, 130, 186, 23);
+		
+		btnCadastroDeVeiculos = new JButton("Cadastro de Ve\u00EDculos");
+		btnCadastroDeVeiculos.setBounds(89, 96, 186, 23);
+		
+		
+		btnPedidos = new JButton("Pedidos");
+		btnPedidos.setBounds(89, 62, 186, 23);
+		
+		btnRelatorios = new JButton("Relat\u00F3rios");
+		btnRelatorios.setBounds(89, 164, 186, 23);
+		
 		contentPane.setLayout(null);
 		contentPane.add(btnCadastroDePessoas);
-		contentPane.add(btnCadastroDeVeculos);
+		contentPane.add(btnCadastroDeVeiculos);
 		contentPane.add(btnPedidos);
-		contentPane.add(btnRelatrios);
-		
+		contentPane.add(btnRelatorios);
 	}
 
 }
