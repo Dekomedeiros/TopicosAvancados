@@ -44,7 +44,11 @@ public class Pedido {
 		this.dataEntradaPedido = dataEntradaPedido;
 	}
 	
-	
+	public static void novoPedido() {
+		Pedido pedido = new Pedido();
+		
+		
+	}
 	
 	
 	
